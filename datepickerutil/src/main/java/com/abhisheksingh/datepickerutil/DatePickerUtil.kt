@@ -8,7 +8,7 @@ import java.util.*
 
 open class DatePickerUtil
 {
-    private fun simpleDatePicker(simpleDateFormat: SimpleDateFormat, context: Context,listener:DatePickerResultCallback ) {
+   open  fun simpleDatePicker(simpleDateFormat: String, context: Context,listener:DatePickerResultCallback ) {
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -24,7 +24,7 @@ open class DatePickerUtil
                 val month = monthOfYear + 1
                 val date = fmt.parse("$dayOfMonth/$month/$year")
 
-                val fmtOut = SimpleDateFormat("dd/MM/yyyy")
+                val fmtOut = SimpleDateFormat(simpleDateFormat)
 
                 listener.dateResult(fmtOut.format(date))
 
